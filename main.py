@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+
 import time
 
 
@@ -20,12 +21,15 @@ if __name__ == "__main__":
 
 	print("Reading from file ...")
 	time.sleep(0.5)
-	file = open("sample-text.txt", "r")
-	words = file.read().lower().split()
-	file.close()
-
-	print("Printing words in alphabetical order ...")
-	time.sleep(0.5)
-	for word in sorted(words):
-		print(word)
-		time.sleep(0.1)
+	try:
+		file = open("index.html", "r")
+		words = file.read().lower().split()
+		file.close()
+		print("Printing words in alphabetical order ...")
+		time.sleep(0.5)
+		for word in sorted(words):
+			print(word)
+			time.sleep(0.1)
+	except FileNotFoundError:
+		print("File not found!")
+	print("END")
